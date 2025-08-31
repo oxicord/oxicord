@@ -1,0 +1,87 @@
+@font-face {
+    font-family: "gg sans";
+    font-style: normal;
+    font-weight: 400;
+    src: url("/public/fonts/gg-sans/400.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "gg sans";
+    font-style: normal;
+    font-weight: 500;
+    src: url("/public/fonts/gg-sans/500.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "gg sans";
+    font-style: normal;
+    font-weight: 600;
+    src: url("/public/fonts/gg-sans/600.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "gg sans";
+    font-style: normal;
+    font-weight: 700;
+    src: url("/public/fonts/gg-sans/700.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "gg sans";
+    font-style: normal;
+    font-weight: 800;
+    src: url("/public/fonts/gg-sans/800.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "ABC Ginto Nord";
+    font-style: normal;
+    font-weight: 800;
+    src: url("/public/fonts/abc-ginto-nord/800.woff2") format("woff2")
+}
+
+:root {
+    --brand: #5865f2;
+    --brand-gradient: linear-gradient(90deg, #8ea1e1, #7289da);
+    --greyple: #99aab5;
+    --dark-not-black: #2c2f33;
+    --focus-border: #00b0f4;
+    --status-green: #43b581;
+    --text-link: #00b0f4;
+    --off-white: #f6f6f6;
+    --white: #fff;
+    --not-quite-black: #23272a;
+    --not-quite-black-rgb: 35, 39, 42;
+    --black: #000;
+    --ekko-red: #de2761;
+    --page-max-width: 1260px;
+    --page-max-width-med: 1024px;
+    --num-grid-columns: 4;
+    --page-gutter: 24px;
+    --section-spacing: 56px;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "gg sans", sans-serif;
+}
+
+@media (min-width: 768px) {
+    :root {
+        --num-grid-columns: 8;
+        --page-gutter: 40px;
+        --section-spacing: 80px;
+    }
+}
+
+@media (min-width: 1024px) {
+    :root {
+        --num-grid-columns: 12;
+        --section-spacing: 120px;
+    }
+}
