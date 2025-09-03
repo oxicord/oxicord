@@ -1,3 +1,8 @@
+/**
+ *  404: https://web.archive.org/web/20230324010551/https://discord.com/404
+ * 2023: https://web.archive.org/web/20231231004523/https://discord.com/
+ */
+
 const chalk = require("chalk");
 require("dotenv").config({ quiet: true, path: ".env.local" });
 
