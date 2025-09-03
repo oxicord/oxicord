@@ -4,7 +4,7 @@
  */
 
 const chalk = require("chalk");
-require("dotenv").config({ quiet: true, path: ".env.local" });
+require("dotenv").config({ quiet: true });
 
 console.reset = () => process.stdout.write(`${"\n".repeat(process.stdout.rows)}\x1B[H`);
 
