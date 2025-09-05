@@ -8,44 +8,44 @@ body {
 .wrapper {
     display: grid;
     grid-template-columns: repeat(var(--num-grid-columns), 1fr);
+    padding: var(--section-spacing) var(--page-gutter);
     width: 100%;
     max-width: var(--page-max-width);
-    padding: var(--section-spacing) var(--page-gutter);
     gap: 0 20px;
 }
 
 .wrapper img {
-    width: 300px;
-    margin: 0 auto 40px;
     grid-column: span 5;
+    margin: 0 auto 40px;
+    width: 300px;
 }
 
 .wrapper .body-wrapper {
-    max-width: 600px;
     grid-column: span 7;
+    max-width: 600px;
     overflow: auto;
 }
 
 .wrapper .body-wrapper h1 {
+    text-transform: uppercase;
+    line-height: 0.95;
+    color: var(--brand);
     font-family: "ABC Ginto Nord", sans-serif;
     font-size: 28px;
-    line-height: 0.95;
     font-weight: 800;
-    text-transform: uppercase;
-    color: var(--brand);
 }
 
 .wrapper .body-wrapper p {
-    font-size: 18px;
-    line-height: 1.4;
     margin-top: 20px;
+    line-height: 1.4;
+    font-size: 18px;
 }
 
 .wrapper .body-wrapper .links a {
-    font-size: 20px;
-    line-height: 35px;
-    text-decoration: none;
     transition: 0.1s ease-in-out;
+    text-decoration: none;
+    line-height: 35px;
+    font-size: 20px;
 }
 
 .wrapper .body-wrapper .links {
@@ -63,9 +63,9 @@ body {
 
 @media (min-width: 1024px) {
     .wrapper img {
-        width: 350px;
-        margin: 0;
         order: 1;
+        margin: 0;
+        width: 350px;
     }
 
     .wrapper .body-wrapper {
