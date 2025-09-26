@@ -13,13 +13,13 @@ const fastify = require("fastify")();
 fastify.register(require("@fastify/static"), {
     root: `${__dirname}/public`,
     prefix: "/public",
-    maxAge: 7 * 24 * 60 * 60 * 1000
+    maxAge: 60 * 60 * 1000
 });
 
 fastify.register(require("@fastify/static"), {
     root: `${__dirname}/dist/assets`,
     prefix: "/assets",
-    maxAge: 7 * 24 * 60 * 60 * 1000,
+    maxAge: 60 * 60 * 1000,
     decorateReply: false
 });
 
