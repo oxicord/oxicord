@@ -1,6 +1,7 @@
 /**
  *  404: https://web.archive.org/web/20230324010551/https://discord.com/404
- * 2023: https://web.archive.org/web/20231231004523/https://discord.com/
+ * 2023: https://web.archive.org/web/20231231004523/https://discord.com
+ *       https://web.archive.org/web/20230729012441/https://discord.com/login
  */
 
 const chalk = require("chalk");
@@ -23,20 +24,6 @@ fastify.register(require("@fastify/static"), {
     decorateReply: false
 });
 
-fastify.register(require("@fastify/static"), {
-    root: `${__dirname}/dist/img`,
-    prefix: "/img",
-    maxAge: 60 * 60 * 1000,
-    decorateReply: false
-});
-
-fastify.register(require("@fastify/static"), {
-    root: `${__dirname}/dist/videos`,
-    prefix: "/videos",
-    maxAge: 60 * 60 * 1000,
-    decorateReply: false
-});
-
 fastify.register(require("@fastify/view"), {
     engine: {
         ejs: require("ejs")
@@ -48,30 +35,8 @@ fastify.get("/", (req, res) => {
     res.view("index.ejs", { env: process.env });
 });
 
-// SPA Routes - Serve index.html for these routes to let client-side router handle them
-[
-    "/app",
-    "/login",
-    "/register",
-    "/channels",
-    "/channels/*",
-    "/store",
-    "/nitro",
-    "/invite/*",
-    "/verify",
-    "/reset"
-].forEach(route => {
-    fastify.get(route, (req, res) => {
-        res.sendFile("index.html", `${__dirname}/dist`);
-    });
-});
-
-// Serve root static files from dist
-fastify.get("/sw.js", (req, res) => res.sendFile("sw.js", `${__dirname}/dist`));
-fastify.get("/manifest.webmanifest", (req, res) => res.sendFile("manifest.webmanifest", `${__dirname}/dist`));
-fastify.get(/^\/workbox-[a-zA-Z0-9]+\.js$/, (req, res) => {
-    const filename = req.url.split('?')[0].slice(1);
-    res.sendFile(filename, `${__dirname}/dist`);
+fastify.get(/^\/(?:app|login|guild-discovery|channels\/[^/]+(?:\/[^/]+)?|)$/, (req, res) => {
+    res.sendFile("index.html", `${__dirname}/dist`);
 });
 
 fastify.get("/robots.txt", (req, res) => {
