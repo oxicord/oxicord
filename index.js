@@ -35,9 +35,17 @@ fastify.get("/", (req, res) => {
     res.view("index.ejs", { env: process.env });
 });
 
-fastify.get(/^\/(?:app|login|guild-discovery|channels\/[^/]+(?:\/[^/]+)?|)$/, (req, res) => {
-    res.sendFile("index.html", `${__dirname}/dist`);
-});
+for (const path of [
+    "/app",
+    "/login",
+    "/guild-discover",
+    "/channels/:guild_id",
+    "/channels/:guild_id/:channel_id"
+]) {
+    fastify.get(path, (req, res) => {
+        res.sendFile("index.html", `${__dirname}/dist`);
+    });
+};
 
 fastify.get("/robots.txt", (req, res) => {
     res.send([
