@@ -38,7 +38,7 @@ fastify.get("/", (req, res) => {
 for (const path of [
     "/app",
     "/login",
-    "/guild-discover",
+    "/guild-discovery",
     "/channels/:guild_id",
     "/channels/:guild_id/:channel_id"
 ]) {
