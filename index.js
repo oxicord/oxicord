@@ -47,6 +47,10 @@ for (const path of [
     });
 };
 
+fastify.get("/manifest.webmanifest", (req, res) => {
+    res.sendFile(`${__dirname}/dist/manifest.webmanifest`);
+});
+
 fastify.get("/robots.txt", (req, res) => {
     res.send([
         "User-agent: *",
