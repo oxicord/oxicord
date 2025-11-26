@@ -18,8 +18,8 @@ fastify.register(require("@fastify/static"), {
 });
 
 fastify.register(require("@fastify/static"), {
-    root: `${__dirname}/dist/assets`,
-    prefix: "/assets",
+    root: `${__dirname}/dist`,
+    prefix: "/",
     maxAge: 60 * 60 * 1000,
     decorateReply: false
 });
@@ -46,10 +46,6 @@ for (const path of [
         res.sendFile("index.html", `${__dirname}/dist`);
     });
 };
-
-fastify.get("/manifest.webmanifest", (req, res) => {
-    res.sendFile(`${__dirname}/dist/manifest.webmanifest`);
-});
 
 fastify.get("/robots.txt", (req, res) => {
     res.send([
